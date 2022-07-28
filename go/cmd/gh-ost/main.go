@@ -8,7 +8,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"net/url"
 	"os"
 	"os/signal"
 	"syscall"
@@ -193,7 +192,7 @@ func main() {
 		}
 	}
 
-	if err := flag.Set("database", url.QueryEscape(migrationContext.DatabaseName)); err != nil {
+	if err := flag.Set("database", migrationContext.DatabaseName); err != nil {
 		migrationContext.Log.Fatale(err)
 	}
 
